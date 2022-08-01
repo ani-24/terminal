@@ -110,7 +110,7 @@ const type = (sentenceArr) => {
         });
       }
       window.addEventListener("keydown", (key) => {
-        task(key);
+        task(key.key);
       });
     }
     typingMusic.pause();
