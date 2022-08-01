@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("./background2.jpg") center/cover;
+}
+
+.terminal {
+  width: 800px;
+  height: 500px;
+  max-height: 75%;
+  max-width: 90%;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
+  color: white;
+  font-family: "Source Code Pro", monospace;
+  padding: 25px;
+  overflow: hidden auto;
+  font-size: 1rem;
+}
+.terminal::-webkit-scrollbar {
+  width: 0;
+  height: 0.5em;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+.terminal:hover::-webkit-scrollbar {
+  width: 0.5em;
+}
+.terminal::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+.terminal::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.terminal p {
+  line-height: 2;
+}
+.terminal p::before {
+  content: ">";
+  margin-right: 1em;
+  color: lightgreen;
+}
+.terminal p span {
+  margin-right: 1em;
+  color: lightgreen;
+}
+.terminal p.intro, .terminal p.user-input {
+  color: lightgreen;
+  -webkit-animation: dull 800ms ease-in-out infinite alternate;
+          animation: dull 800ms ease-in-out infinite alternate;
+}
+.terminal p.user-input::after {
+  content: "";
+  position: relative;
+  bottom: 0;
+  height: 3px;
+  width: 10px;
+  background: lightgreen;
+  display: inline-block;
+}
+.terminal p.user-input.value-recieved {
+  -webkit-animation: none;
+          animation: none;
+}
+.terminal p.user-input.value-recieved::after {
+  display: none;
+}
+@-webkit-keyframes dull {
+  to {
+    opacity: 0.5;
+  }
+}
+@keyframes dull {
+  to {
+    opacity: 0.5;
+  }
+}
+@media (max-width: 600px) {
+  .terminal {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 500px) {
+  .terminal {
+    font-size: 0.75rem;
+  }
+}/*# sourceMappingURL=style.css.map */

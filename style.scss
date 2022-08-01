@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("./background2.jpg") center / cover;
+}
+
+.terminal {
+  width: 800px;
+  height: 500px;
+  max-height: 75%;
+  max-width: 90%;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(50px);
+  color: white;
+  font-family: "Source Code Pro", monospace;
+  padding: 25px;
+  overflow: hidden auto;
+  font-size: 1rem;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0.5em;
+    transition: 200ms;
+  }
+  &:hover {
+    &::-webkit-scrollbar {
+      width: 0.5em;
+    }
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+  p {
+    line-height: 2;
+    &::before {
+      content: ">";
+      margin-right: 1em;
+      color: lightgreen;
+    }
+    span {
+      margin-right: 1em;
+      color: lightgreen;
+    }
+    &.intro,
+    &.user-input {
+      color: lightgreen;
+      animation: dull 800ms ease-in-out infinite alternate;
+    }
+    &.user-input {
+      &::after {
+        content: "";
+        position: relative;
+        bottom: 0;
+        height: 3px;
+        width: 10px;
+        background: lightgreen;
+        display: inline-block;
+      }
+      &.value-recieved {
+        animation: none;
+        &::after {
+          display: none;
+        }
+      }
+    }
+    @keyframes dull {
+      to {
+        opacity: 0.5;
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    font-size: 0.9rem;
+  }
+  @media (max-width: 500px) {
+    font-size: 0.75rem;
+  }
+}
