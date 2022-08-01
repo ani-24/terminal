@@ -59,10 +59,13 @@ body {
   margin-right: 1em;
   color: lightgreen;
 }
-.terminal p.intro, .terminal p.user-input {
+.terminal p.intro {
   color: lightgreen;
   -webkit-animation: dull 800ms ease-in-out infinite alternate;
           animation: dull 800ms ease-in-out infinite alternate;
+}
+.terminal p.user-input {
+  color: lightgreen;
 }
 .terminal p.user-input::after {
   content: "";
@@ -72,6 +75,9 @@ body {
   width: 10px;
   background: lightgreen;
   display: inline-block;
+  margin-left: 0.5em;
+  -webkit-animation: blink 800ms ease-in-out infinite alternate;
+          animation: blink 800ms ease-in-out infinite alternate;
 }
 .terminal p.user-input.value-recieved {
   -webkit-animation: none;
@@ -88,6 +94,16 @@ body {
 @keyframes dull {
   to {
     opacity: 0.5;
+  }
+}
+@-webkit-keyframes blink {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes blink {
+  to {
+    opacity: 0;
   }
 }
 @media (max-width: 600px) {
