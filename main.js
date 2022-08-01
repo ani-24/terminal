@@ -79,6 +79,22 @@ const type = (sentenceArr) => {
       p = document.createElement("p");
       p.classList.add("user-input");
       terminal.appendChild(p);
+      const task = (ltr) => {
+        if (ltr == "w" || ltr == "W") {
+          alert("Works");
+        } else if (ltr == "s" || ltr == "S") {
+          const userInput = document.querySelector(".user-input");
+          userInput.classList.add("value-recieved");
+          userInput.innerHTML = ltr;
+          typingMusic.currentTime = 0;
+          typingMusic.play();
+          sentIndex = 0;
+          charIndex = 0;
+          setTimeout(() => {
+            type(skills);
+          }, 200);
+        }
+      };
       if (touchScreen) {
         const input = document.createElement("input");
         input.setAttribute(
@@ -90,23 +106,11 @@ const type = (sentenceArr) => {
         input.focus();
         input.addEventListener("input", () => {
           input.style.width = input.value.length + "ch";
+          task(input.value);
         });
       }
       window.addEventListener("keydown", (key) => {
-        if (key.key == "w" || key.key == "W") {
-          alert("Works");
-        } else if (key.key == "s" || key.key == "S") {
-          const userInput = document.querySelector(".user-input");
-          userInput.classList.add("value-recieved");
-          userInput.innerHTML = key.key;
-          typingMusic.currentTime = 0;
-          typingMusic.play();
-          sentIndex = 0;
-          charIndex = 0;
-          setTimeout(() => {
-            type(skills);
-          }, 200);
-        }
+        task(key);
       });
     }
     typingMusic.pause();
