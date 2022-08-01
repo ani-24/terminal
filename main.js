@@ -82,6 +82,12 @@ const type = (sentenceArr) => {
       if (touchScreen) {
         const input = document.createElement("input");
         input.focus();
+        input.setAttribute(
+          "style",
+          "display: inline-block; background: transparent; outline: none; border: none; font-family: inherit; color: lightgreen; width: 1ch;"
+        );
+        input.maxLength = 1;
+        p.appendChild(input);
       }
       window.addEventListener("keydown", (key) => {
         if (key.key == "w" || key.key == "W") {
