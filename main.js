@@ -108,10 +108,11 @@ const type = (sentenceArr) => {
           input.style.width = input.value.length + "ch";
           task(input.value);
         });
+      } else {
+        window.addEventListener("keydown", (key) => {
+          task(key.key);
+        });
       }
-      window.addEventListener("keydown", (key) => {
-        task(key.key);
-      });
     }
     typingMusic.pause();
   }
