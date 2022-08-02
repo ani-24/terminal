@@ -51,7 +51,7 @@ typingMusic.addEventListener("timeupdate", () => {
   }
 });
 
-let typingSpeed = 10;
+let typingSpeed = 80;
 let charIndex = 0;
 let sentIndex = 0;
 
