@@ -51,7 +51,7 @@ typingMusic.addEventListener("timeupdate", () => {
   }
 });
 
-let typingSpeed = 80;
+let typingSpeed = 10;
 let charIndex = 0;
 let sentIndex = 0;
 
@@ -99,13 +99,13 @@ const type = (sentenceArr) => {
         const input = document.createElement("input");
         input.setAttribute(
           "style",
-          "display: inline-block; background: transparent; outline: none; border: none; font-family: inherit; color: lightgreen; width: 0; caret-color: transparent"
+          "display: inline-block; background: transparent; outline: none; border: none; font-family: inherit; color: lightgreen; width: 1ch; caret-color: transparent"
         );
         input.maxLength = 1;
         p.appendChild(input);
         input.focus();
         input.addEventListener("input", () => {
-          input.style.width = input.value.length + "ch";
+          input.style.width = input.value.length + 1 + "ch";
           task(input.value);
         });
       } else {
