@@ -75,7 +75,6 @@ body {
   width: 10px;
   background: lightgreen;
   display: inline-block;
-  margin-left: 0.5em;
   -webkit-animation: blink 800ms ease-in-out infinite alternate;
           animation: blink 800ms ease-in-out infinite alternate;
 }

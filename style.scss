@@ -73,7 +73,6 @@ body {
         width: 10px;
         background: lightgreen;
         display: inline-block;
-        margin-left: 0.5em;
         animation: blink 800ms ease-in-out infinite alternate;
       }
       &.value-recieved {
